@@ -1,0 +1,8 @@
+#!/bin/bash
+p="\033[00m"
+m="\033[1;31m"
+echo -e "${p}[${m}+${p}] installing packages"
+apt install proot -y &> /dev/null
+echo -e "${p}[${m}+${p}] Sedang menyalin data root"
+sleep 2;mv root ~/../usr/bin && chmod +x ~/../usr/bin/root && root
+

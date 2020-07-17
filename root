@@ -1,0 +1,47 @@
+#!/bin/bash
+m="\033[1;31m"
+h="\033[1;32m"
+p="\033[00m"
+
+usage(){
+echo -e "
+${m}TERMUX-ROOT
+${p}-----------
+${p} usage: ./root <${h}option${p}> <${h}description${p}>
+
+${m}Option                                    Description
+${p}------                                    -----------
+${p}su,supersu                 ${m} make current user as root
+${p}install <${h}packages name${p}>     ${m} install packages as root
+${p}uninstall <${h}packages name${p}>  ${m}uninstall packages as root
+${p}remove <${h}dir/file${p}>      ${m} remove folder or file as root
+${p}chmod <${h}file${p}>               ${m}     giving access as root
+
+${p}BY ${h}Aslanzz ${p}X ${h}Safazz
+"
+}
+
+ARGS=$(printf '%q ' "$@")
+
+if [ -z "$*" ]; then
+        usage
+elif [ $1 == "su" ]; then
+        proot -0
+        rm -rf '?' &> /dev//null
+elif [ $1 == "superuser" ]; then
+        proot -0
+        rm -rf '?' &> /dev//null
+elif [ $1 == "--help" ]; then
+        usage
+elif [ $1 == "install" ]; then
+        proot apt install $2
+elif [ $1 == "uninstall" ]; then
+        proot apt remove $2
+elif [ $1  == "remove" ]; then
+        proot rm -rf $2
+elif [ $1 == "chmod" ]; then
+        proot chmod +x $2
+else
+        echo "[!] Please type 'root --help'"
+        rm -rf '?' &> /dev//null
+fi
