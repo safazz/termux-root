@@ -8,3 +8,17 @@
 <img src="https://l.top4top.io/p_1659wh63v0.png" width="640" title="root" alt="root"><p>
 Coded by <a href="https://github.com/aslanzz">Aslanzz</a>
 </p>
+
+## Installation
+```
+$ apt install git
+$ git clone https://github.com/safazz/termux-root
+```
+## usage
+```
+$ cd termux-root
+$ chmod +x setup
+$ ./setup
+$ root --help
+```
+
